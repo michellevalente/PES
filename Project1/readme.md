@@ -47,4 +47,4 @@ A Michelle deu uma nova ideia de fazer um jogo de tradução português/inglês 
 
 ####11/04/2016
 
-Na segunda-feira checamos as regras de disciplina. A Michelle checou as regras "Identidade", "Verificação e Validação" e "Modularidade" e o Lucas checou as regras "Rastro para o conector", "Desenho simples" e "Livro diário". Também foram feitas algumas modificações no programa para evitar o dígito de números em uma palavra e restringir a quantidade de partidas para um número menor ou igual ao número de palavras no arquivo dicionario.txt.
+Na segunda-feira checamos as regras de disciplina. A Michelle checou as regras "Identidade", "Verificação e Validação" e "Modularidade" e o Lucas checou as regras "Rastro para o conector", "Desenho simples" e "Livro diário". Também foram feitas algumas modificações no programa para restringir a quantidade de partidas para um número menor ou igual ao número de palavras no arquivo dicionario.txt.
