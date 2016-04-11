@@ -18,13 +18,13 @@ v1.0
 
 ####Arquitetura:
 
-main.lua
-|---> dicionary.lua
-|---> tabela.lua
+main.lua<br/>
+|---> dicionary.lua<br/>
+|---> tabela.lua<br/>
 
-dicionary.lua
-|---> tabela.lua
-|---> dicionario.txt
+dicionary.lua<br/>
+|---> tabela.lua<br/>
+|---> dicionario.txt<br/>
 
 Pré-condições:
 1) Deve existir um arquivo dicionario.txt com as palavras em português acompanhadas das suas respectivas traduções em inglês.
