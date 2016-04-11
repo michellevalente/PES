@@ -26,15 +26,15 @@ dicionary.lua<br/>
 |---> tabela.lua<br/>
 |---> dicionario.txt<br/>
 
-Pré-condições:
-1) Deve existir um arquivo dicionario.txt com as palavras em português acompanhadas das suas respectivas traduções em inglês.
-2) O jogador deve entrar com um input que representa a quantidade de rodadas no jogo (palavras diferentes).
-3) O jogador deve entrar com um input que representa a resposta em cada rodada.
+Pré-condições:<br/>
+1) Deve existir um arquivo dicionario.txt com as palavras em português acompanhadas das suas respectivas traduções em inglês.<br/>
+2) O jogador deve entrar com um input que representa a quantidade de rodadas no jogo (palavras diferentes).<br/>
+3) O jogador deve entrar com um input que representa a resposta em cada rodada.<br/>
 
-Pós-condições:
-1) Em cada rodada o jogo deve apresentar um output dizendo se a resposta está certa ou errada.
-2) No final do jogo deve se apresentada a pontuação final do jogador.
-3) O input dado pelo jogador para saber a quantidade de rodadas deve ser positivo e menor ou igual ao numero de palavras no arquivo dicionario.txt.
+Pós-condições:<br/>
+1) Em cada rodada o jogo deve apresentar um output dizendo se a resposta está certa ou errada.<br/>
+2) No final do jogo deve se apresentada a pontuação final do jogador.<br/>
+3) O input dado pelo jogador para saber a quantidade de rodadas deve ser positivo e menor ou igual ao numero de palavras no arquivo dicionario.txt.<br/>
 
 ### Livro diario:
 
