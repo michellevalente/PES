@@ -35,7 +35,6 @@ for line in fileIn:lines() do
   end
   fileOut:write("\n")
   first = 1
-
 end
 
 local endString = "}"
@@ -43,5 +42,7 @@ fileOut:write(endString)
 
 io.close(fileIn)
 io.close(fileOut)
+
+return quantidadePalavras
 
 end

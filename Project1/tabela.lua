@@ -5,4 +5,7 @@ tabela = {['Oi'] = 'Hi'
 ,['Lapis'] = 'Pencil'
 ,['Aviao'] = 'Plane'
 ,['Carro'] = 'Car'
+,['Computador'] = 'Computer'
+,['Passaro'] = 'Bird'
+,['Navio'] = 'Ship'
 }

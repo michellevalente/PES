@@ -31,10 +31,23 @@ function turn(numRodadas)
 end
 
 function main()
+
+  local quantidadePalavras = 0
+  local points = 0
+
+  for pt, en in pairs (tabela) do
+    quantidadePalavras = quantidadePalavras + 1
+  end
+
   print("Bem vindo ao Jogo do Dicionario!\n")
-  print("Insira o numero de palavras da rodada: ")
+  print("Insira o numero de palavras da rodada menor que " .. quantidadePalavras .. ":")
   local numRodadas = io.read("*n")
-  local points = turn(numRodadas)
-  print("Numero total de pontos feitos: " .. points)
+
+  if (0 < numRodadas and numRodadas <= quantidadePalavras) then
+    points = turn(numRodadas)
+    print("Numero total de pontos feitos: " .. points)
+  else
+    print("Quantidade invalida")
+  end
 end
 main()
