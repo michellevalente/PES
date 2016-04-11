@@ -1,11 +1,11 @@
-#Jogo do Dicionario
+#Jogo do Dicionário
 
 ####Titulo:
-Jogo do Dicionario
+Jogo do Dicionário
 
 ####Autores:
-@michellevalente
-@lucashardman
+Michelle Valente - 1312828<br/>
+Lucas Hardman - 1113567<br/>
 
 ####Versão atual:
 v1.0
