@@ -38,6 +38,13 @@ Pós-condições:<br/>
 
 ### Livro diario:
 
+####09/04/2016
+Instalamos o interpretador de lua e começamos a estudar a linguagem. Não foi muito difícil de aprender.<br/>Começamos a pensar na aplicação. Foi um pouco complicado decidir um programa que não fosse muito fácil e nem muito difícil. Mas tinhamos algumas ideias em mente.
+
 ####10/04/2016
 
+A Michelle deu uma nova ideia de fazer um jogo de tradução português/inglês e resolvemos usá-la. Então a Michelle pensou a arquitetura e programou o módulo da main.lua e fez o arquivo dicionario.txt. O Lucas programou os módulos dictionary.lua e tabela.lua. O programa ficou pronto na sua primeira versão no mesmo dia.
+
 ####11/04/2016
+
+Na segunda-feira checamos as regras de disciplina. A Michelle checou as regras "Identidade", "Verificação e Validação" e "Modularidade" e o Lucas checou as regras "Rastro para o conector", "Desenho simples" e "Livro diário". Também foram feitas algumas modificações no programa para evitar o dígito de números em uma palavra e restringir a quantidade de partidas para um número menor ou igual ao número de palavras no arquivo dicionario.txt.
