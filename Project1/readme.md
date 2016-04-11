@@ -1,26 +1,23 @@
 #Jogo do Dicionario
 
-####Title:
+####Titulo:
 Jogo do Dicionario
 
-####Authors:
+####Autores:
 @michellevalente
 @lucashardman
 
-####Actual Version:
+####Versão atual:
 v1.0
 
-####Proximate size:
+####Tamanho aproximado:
 1.84Kb
 
-####About the game:
-  This is a game about translation. As the game starts, it asks how many words do you want to try to translate from portuguese to english.
-  Next, it pops random words in portuguese and the user is asked to translate them. The user has only one chance, if it is correct one point
-  is earned and if it is wrong one point is lost. After each attempt, a message is shown to notify if it was a wrong or correct answer. When
-  all rounds are over, the program outputs a message to notify the score.
+####Sobre o jogo:
+  Este programa é um jogo de tradução. Ao iniciar, o jogo pergunta quantas palavras o usuário quer tentar traduzir do português para o inglês. Depois, o jogo pede para o usuário traduzir a quantidade de palavras escolhidas, tendo apenas uma tentiva. Depois de cada resposta, uma mensagem aparece para informar se está correto ou errado. Em cada tentativa certa o jogador ganho um ponto, e em cada tentativa errada perde um ponto. No final é exibida uma notificação dizendo quantos pontos foram feitos.
 
-### Coding History:
+### Livro diario:
 
-####03/11/2016
+####10/04/2016
 
-####04/11/2016
+####11/04/2016
