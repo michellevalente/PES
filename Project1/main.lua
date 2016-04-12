@@ -2,6 +2,10 @@ require "dictionary"
 setDictionary()
 require "tabela"
 
+--------------------------------------------------------
+-- Loop for the game 
+-- Parameters: number of words to play
+--------------------------------------------------------
 function turn(numRodadas)
   print("Responda a palavra em ingles correspondente\n")
   local points = 0
@@ -30,6 +34,9 @@ function turn(numRodadas)
   return points
 end
 
+--------------------------------------------------------
+-- Main Function
+--------------------------------------------------------
 function main()
 
   local quantidadePalavras = 0
