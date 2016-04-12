@@ -1,4 +1,9 @@
+-------------------------------------------------------------
 -- Function to create table with dictionary
+-- Preconditions:
+-- -> The file Dicionario.txt is valid.
+-- -> All the loops stop.
+-------------------------------------------------------------
 function setDictionary()
 
 -- Open Files
@@ -49,3 +54,10 @@ io.close(fileOut)
 return quantidadePalavras
 
 end
+-------------------------------------------------------------
+-- Postcondition:
+-- -> The file Dicionario.txt is valid because it is not each
+-- empty and each line contains 2 words.
+-- -> The both loops read Dicionario.txt and will stop because
+-- the file has finite number of words
+-------------------------------------------------------------
