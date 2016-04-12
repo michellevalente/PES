@@ -19,6 +19,7 @@ v1.0
 ####Arquitetura:
 
 main.lua<br/>
+|---> game.lua<br/>
 |---> dicionary.lua<br/>
 |---> tabela.lua<br/>
 
