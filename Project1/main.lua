@@ -3,7 +3,7 @@ setDictionary()
 require "tabela"
 
 --------------------------------------------------------
--- Loop for the game 
+-- Loop for the game. 
 -- Parameters: number of words to play
 --------------------------------------------------------
 function turn(numRodadas)
