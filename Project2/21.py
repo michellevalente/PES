@@ -24,7 +24,7 @@ def remove_stop_words(word_list):
     assert(type(word_list) is list), "I need a list!"
 
     try:
-        with open('../stop_words.txt') as f:
+        with open('stop_words.txt') as f:
             stop_words = f.read().split(',')
     except IOError as e:
         print "I/O error({0}) when opening ../stops_words.txt: {1}! I quit!".format(e.errno, e.strerror)

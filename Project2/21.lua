@@ -28,7 +28,7 @@ function remove_stop_words(word_list)
     assert(type(word_list) == "table", "I need a table!")
 
     if pcall(function () 
-        local f = io.open('../stop_words.txt',"r")
+        local f = io.open("stop_words.txt","r")
         local stop_words = f:read("*all")
         stop_words_final = {}
         for word in string.gmatch(stop_words, '([^,]+)') do
@@ -79,6 +79,20 @@ function frequencies(word_list)
     return word_freqs
 end
 
+
+function getKeysSortedByValue(tbl, sortFunction)
+  local keys = {}
+  for key in pairs(tbl) do
+    table.insert(keys, key)
+  end
+
+  table.sort(keys, function(a, b)
+    return sortFunction(tbl[a], tbl[b])
+  end)
+
+  return keys
+end
+
 function sort(word_freq)
 
 	local sortedWords = {}
@@ -86,19 +100,15 @@ function sort(word_freq)
 	assert(type(word_freq) == "table", "I need a table!")
 	assert((word_freq), "I need a non-empty table!")
 
-	--traduzir para Lua
-
 	xpcall(function()
-				sortedWords = table.sort(word_freq, compareFrequencies)
-				return sortedWords
-
+				sortedWords = getKeysSortedByValue(word_freq, function(a, b) return a > b end)
 			end,
 
 			function(err)
-
 				io.write("Sorted threw: " .. err)
-
 			end)
+
+	return sortedWords
 end
 
 function compareFrequencies(frequency1, frequency2)
@@ -111,7 +121,7 @@ end
 
 function len(tab)
 	local count = 0;
-	for index in pairs(T) do 
+	for index in pairs(tab) do 
 		count = count + 1
 	end
 
@@ -129,12 +139,12 @@ xpcall(function ()
             --word_freqs = frequencies(remove_stop_words(extract_words(arg[1])))
 			word_freqs = sort(frequencies(remove_stop_words(extract_words(arg[1]))))
             --io.write(word_freqs)
-			--assert(type(word_freqs) == "table", "OMG! This is not a table!")
-			--assert((len(word_freqs) > 25), "SRSLY? Less than 25 words!")
+			assert(type(word_freqs) == "table", "OMG! This is not a table!")
+			assert((len(word_freqs) > 25), "SRSLY? Less than 25 words!")
 
-			--for w, c in pairs(word_freqs) do
-			--	print(w .. "-" .. c)
-			--end
+			for w, c in pairs(word_freqs) do
+				print(w .. "-" .. c)
+			end
 
 		end,
 
