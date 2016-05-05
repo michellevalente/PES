@@ -40,10 +40,17 @@ function remove_stop_words(word_list)
         io.write(string.format("I/O error when opening ../stop_words.txt: I quit!\n",path_to_file))
     end
 
+    words_list_final = {}
+    for c, w in pairs(word_list) do
+        lower_word = w:lower()
+        if(not has_value(stop_words_final, lower_word))then 
+            table.insert(words_list_final, lower_word)
+        end
+    end
     -- traduzir para lua
     -- stop_words.extend(list(string.ascii_lowercase))
     -- return [w for w in word_list if not w in stop_words]
-    return word_list
+    return words_list_final
 end
 
 function has_value (tab, val)
@@ -82,10 +89,7 @@ function sort(word_freq)
 	--traduzir para Lua
 
 	xpcall(function()
-                print "teste"
-                io.write(type(word_freq))
 				sortedWords = table.sort(word_freq, compareFrequencies)
-                 io.write(type(sortedWords))
 				return sortedWords
 
 			end,
@@ -122,15 +126,15 @@ xpcall(function ()
 			local word_freqs
 
 			assert((arg[1]), "You idiot! I need an input file!")
-            word_freqs = frequencies(remove_stop_words(extract_words(arg[1])))
-			--word_freqs = sort(frequencies(remove_stop_words(extract_words(arg[1]))))
+            --word_freqs = frequencies(remove_stop_words(extract_words(arg[1])))
+			word_freqs = sort(frequencies(remove_stop_words(extract_words(arg[1]))))
             --io.write(word_freqs)
 			--assert(type(word_freqs) == "table", "OMG! This is not a table!")
 			--assert((len(word_freqs) > 25), "SRSLY? Less than 25 words!")
 
-			for w, c in pairs(word_freqs) do
-				print(w .. "-" .. c)
-			end
+			--for w, c in pairs(word_freqs) do
+			--	print(w .. "-" .. c)
+			--end
 
 		end,
 
