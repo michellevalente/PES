@@ -28,7 +28,7 @@ function remove_stop_words(word_list)
     assert(type(word_list) == "table", "I need a table!")
 
     if pcall(function () 
-        local f = io.open("stop_words.txt","r")
+        local f = io.open('../stop_words.txt',"r")
         local stop_words = f:read("*all")
         stop_words_final = {}
         for word in string.gmatch(stop_words, '([^,]+)') do
@@ -68,7 +68,6 @@ function frequencies(word_list)
 
     word_freqs = {}
     for index, word in pairs( word_list ) do
-
         word_freqs[word] = 0
     end
 
@@ -79,18 +78,27 @@ function frequencies(word_list)
     return word_freqs
 end
 
+function spairs(t, order)
+    -- collect the keys
+    local keys = {}
+    for k in pairs(t) do keys[#keys+1] = k end
 
-function getKeysSortedByValue(tbl, sortFunction)
-  local keys = {}
-  for key in pairs(tbl) do
-    table.insert(keys, key)
-  end
+    -- if order function given, sort by it by passing the table and keys a, b,
+    -- otherwise just sort the keys 
+    if order then
+        table.sort(keys, function(a,b) return order(t, a, b) end)
+    else
+        table.sort(keys)
+    end
 
-  table.sort(keys, function(a, b)
-    return sortFunction(tbl[a], tbl[b])
-  end)
-
-  return keys
+    -- return the iterator function
+    local i = 0
+    return function()
+        i = i + 1
+        if keys[i] then
+            return keys[i], t[keys[i]]
+        end
+    end
 end
 
 function sort(word_freq)
@@ -100,28 +108,28 @@ function sort(word_freq)
 	assert(type(word_freq) == "table", "I need a table!")
 	assert((word_freq), "I need a non-empty table!")
 
+	--traduzir para Lua
+
 	xpcall(function()
-				sortedWords = getKeysSortedByValue(word_freq, function(a, b) return a > b end)
+                for k,v in spairs(word_freq, function(t,a,b) return t[b] < t[a] end) do
+                    if(v > 200) then
+                        print(k .. "-" .. v)
+                    end
+                end
+				return word_freq
+
 			end,
 
 			function(err)
+
 				io.write("Sorted threw: " .. err)
+
 			end)
-
-	return sortedWords
-end
-
-function compareFrequencies(frequency1, frequency2)
-    io.write(frequency1)
-    print "\n"
-     io.write(frequency2)
-    print "\n"
-	return frequency1 > frequency2
 end
 
 function len(tab)
 	local count = 0;
-	for index in pairs(tab) do 
+	for index in pairs(T) do 
 		count = count + 1
 	end
 
@@ -138,13 +146,10 @@ xpcall(function ()
 			assert((arg[1]), "You idiot! I need an input file!")
             --word_freqs = frequencies(remove_stop_words(extract_words(arg[1])))
 			word_freqs = sort(frequencies(remove_stop_words(extract_words(arg[1]))))
-            --io.write(word_freqs)
-			assert(type(word_freqs) == "table", "OMG! This is not a table!")
-			assert((len(word_freqs) > 25), "SRSLY? Less than 25 words!")
 
-			for w, c in pairs(word_freqs) do
-				print(w .. "-" .. c)
-			end
+            --io.write(word_freqs)
+			--assert(type(word_freqs) == "table", "OMG! This is not a table!")
+			--assert((len(word_freqs) > 25), "SRSLY? Less than 25 words!")
 
 		end,
 
