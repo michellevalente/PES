@@ -2,17 +2,20 @@
 -- The functions
 
 function extract_words(path_to_file)
+
+	local content
+	local words = {}
+
     assert(type(path_to_file) == "string", "I need a string!" )
     assert((path_to_file), "I need a non-empty string!" )
 
     if pcall(function ()
         local f = io.open(path_to_file,"r")
-        local content = f:read("*all")
-        end) then
+        content = f:read("*all")
         f:close()
+        end) then
     else
         io.write(string.format("I/O error when opening {%s}: I quit!\n",path_to_file))
-
     end
     
     for w in string.gmatch(content, "%w+") do
@@ -28,8 +31,8 @@ function remove_stop_words(word_list)
         local f = io.open('../stop_words.txt',"r")
         local stop_words = f:read("*all")
         split(stop_words,',')
-        end) then
         f:close()
+        end) then
     else
         io.write(string.format("I/O error when opening ../stop_words.txt: I quit!\n",path_to_file))
     end
@@ -65,19 +68,35 @@ function frequencies(word_list)
 end
 
 function sort(word_freq)
-	assert(type(word_freq) == "table"), "I need a table!")
-	assert((word_freq), "I need a non-empty dictionary!")
+
+	local sortedWords = {}
+
+	assert(type(word_freq) == "table", "I need a table!")
+	assert((word_freq), "I need a non-empty table!")
 
 	--traduzir para Lua
-	-- try:
-    --     return sorted(word_freq.iteritems(), key=operator.itemgetter(1), reverse=True)
-    -- except Exception as e:
-    --     print "Sorted threw {0}: {1}".format(e)
-    --     raise e
 
-function len(table)
+	xpcall(function()
+
+				sortedWords = table.sort(word_freq, compareFrequencies)
+				return sortedWords
+
+			end,
+
+			function(err)
+
+				io.write("Sorted threw: " .. err)
+
+			end)
+end
+
+function compareFrequencies(frequency1, frequency2)
+	return frequency1 > frequency2
+end
+
+function len(tab)
 	local count = 0;
-	for _ in pairs(T) do 
+	for index in pairs(T) do 
 		count = count + 1
 	end
 
@@ -99,6 +118,7 @@ xpcall(function ()
 
 			for w, c in pairs(word_freqs) do
 				print(w .. "-" .. c)
+			end
 
 		end,
 
