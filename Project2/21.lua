@@ -140,16 +140,8 @@ end
 --The main function
 
 xpcall(function () 
-
-			local word_freqs
-
 			assert((arg[1]), "You idiot! I need an input file!")
-            --word_freqs = frequencies(remove_stop_words(extract_words(arg[1])))
 			word_freqs = sort(frequencies(remove_stop_words(extract_words(arg[1]))))
-
-            --io.write(word_freqs)
-			--assert(type(word_freqs) == "table", "OMG! This is not a table!")
-			--assert((len(word_freqs) > 25), "SRSLY? Less than 25 words!")
 
 		end,
 
