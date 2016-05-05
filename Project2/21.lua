@@ -57,16 +57,14 @@ function has_value (tab, val)
 end
 
 function frequencies(word_list)
-    io.write(type(word_list)) 
     assert(type(word_list) == "table", "I need a table!")
-    assert(next(myTable), "I need a non-empty table!")
 
     word_freqs = {}
-    for w in word_list do
-        if(has_value(word_freqs, w)) then
-            word_listfreqs[w] = word_freqs[w] + 1
-        else
-            word_freqs[w] = 1
+    for index, word in pairs( word_list ) do
+       if(has_value(word_freqs, word)) then
+            word_listfreqs[index] = word_freqs[index] + 1
+       else
+            word_freqs[index] = 1
         end
     end
     return word_freqs
@@ -116,14 +114,15 @@ xpcall(function ()
 			local word_freqs
 
 			assert((arg[1]), "You idiot! I need an input file!")
-			word_freqs = sort(frequencies(remove_stop_words(extract_words(arg[1]))))
+            word_freqs = frequencies(remove_stop_words(extract_words(arg[1])))
+			--word_freqs = sort(frequencies(remove_stop_words(extract_words(arg[1]))))
 
-			assert(type(word_freqs) == "table", "OMG! This is not a table!")
-			assert((len(word_freqs) > 25), "SRSLY? Less than 25 words!")
+			--assert(type(word_freqs) == "table", "OMG! This is not a table!")
+			--assert((len(word_freqs) > 25), "SRSLY? Less than 25 words!")
 
-			for w, c in pairs(word_freqs) do
-				print(w .. "-" .. c)
-			end
+			--for w, c in pairs(word_freqs) do
+			--	print(w .. "-" .. c)
+			--end
 
 		end,
 
