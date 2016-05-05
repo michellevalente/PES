@@ -30,7 +30,10 @@ function remove_stop_words(word_list)
     if pcall(function () 
         local f = io.open('../stop_words.txt',"r")
         local stop_words = f:read("*all")
-        split(stop_words,',')
+        stop_words_final = {}
+        for word in string.gmatch(stop_words, '([^,]+)') do
+            table.insert(stop_words_final, word)
+        end
         f:close()
         end) then
     else
@@ -40,6 +43,7 @@ function remove_stop_words(word_list)
     -- traduzir para lua
     -- stop_words.extend(list(string.ascii_lowercase))
     -- return [w for w in word_list if not w in stop_words]
+    return stop_words_final
 end
 
 function has_value (tab, val)
@@ -53,13 +57,14 @@ function has_value (tab, val)
 end
 
 function frequencies(word_list)
+    io.write(type(word_list)) 
     assert(type(word_list) == "table", "I need a table!")
     assert(next(myTable), "I need a non-empty table!")
 
     word_freqs = {}
     for w in word_list do
         if(has_value(word_freqs, w)) then
-            word_freqs[w] = word_freqs[w] + 1
+            word_listfreqs[w] = word_freqs[w] + 1
         else
             word_freqs[w] = 1
         end
